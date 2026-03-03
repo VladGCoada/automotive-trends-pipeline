@@ -11,8 +11,6 @@ NREL (DOE) – Alternative fuel stations
 
 EPA – Vehicle fuel economy
 
-The goal wasn’t to overengineer it, but to build something clean, understandable, and structured the way a real data platform would be — using a simple medallion architecture.
-
 Architecture (Simple Version)
 Raw → Silver → Gold
 Raw
