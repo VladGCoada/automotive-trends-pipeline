@@ -1,0 +1,155 @@
+{
+  "run_date": "2026-03-03",
+  "generated_at_utc": "2026-03-03T06:43:51.141600+00:00",
+  "extract": [],
+  "silver": [
+    {
+      "dataset": "nhtsa_complaints",
+      "silver_rows": 1572695,
+      "duplicates_removed": 603295,
+      "dropped_missing_core": 0,
+      "output": "data\\silver\\nhtsa_complaints\\run_date=2026-03-03\\nhtsa_complaints.parquet",
+      "top_null_rates_pct": [
+        {
+          "column": "component",
+          "null_pct": 0.0092
+        },
+        {
+          "column": "summary",
+          "null_pct": 0.0032
+        },
+        {
+          "column": "model",
+          "null_pct": 0.0015
+        },
+        {
+          "column": "make",
+          "null_pct": 0.0014
+        },
+        {
+          "column": "model_year",
+          "null_pct": 0.0014
+        },
+        {
+          "column": "state",
+          "null_pct": 0.0006
+        },
+        {
+          "column": "odi_number",
+          "null_pct": 0.0
+        },
+        {
+          "column": "received_date",
+          "null_pct": 0.0
+        }
+      ],
+      "note": "NHTSA FLAT_CMPL parsed as tab-delimited; python engine with on_bad_lines=skip."
+    },
+    {
+      "dataset": "nrel_stations",
+      "silver_rows": 87732,
+      "duplicates_removed": 0,
+      "dropped_missing_core": 0,
+      "output": "data\\silver\\nrel_stations\\run_date=2026-03-03\\nrel_stations.parquet",
+      "top_null_rates_pct": [
+        {
+          "column": "city",
+          "null_pct": 0.0046
+        },
+        {
+          "column": "zip",
+          "null_pct": 0.0046
+        },
+        {
+          "column": "id",
+          "null_pct": 0.0
+        },
+        {
+          "column": "station_name",
+          "null_pct": 0.0
+        },
+        {
+          "column": "fuel_type_code",
+          "null_pct": 0.0
+        },
+        {
+          "column": "state",
+          "null_pct": 0.0
+        },
+        {
+          "column": "latitude",
+          "null_pct": 0.0
+        },
+        {
+          "column": "longitude",
+          "null_pct": 0.0
+        }
+      ],
+      "note": null
+    },
+    {
+      "dataset": "epa_vehicles",
+      "silver_rows": 49806,
+      "duplicates_removed": 0,
+      "dropped_missing_core": 0,
+      "output": "data\\silver\\epa_vehicles\\run_date=2026-03-03\\epa_vehicles.parquet",
+      "top_null_rates_pct": [
+        {
+          "column": "id",
+          "null_pct": 0.0
+        },
+        {
+          "column": "year",
+          "null_pct": 0.0
+        },
+        {
+          "column": "make",
+          "null_pct": 0.0
+        },
+        {
+          "column": "model",
+          "null_pct": 0.0
+        },
+        {
+          "column": "fuel_type1",
+          "null_pct": 0.0
+        },
+        {
+          "column": "city08",
+          "null_pct": 0.0
+        },
+        {
+          "column": "highway08",
+          "null_pct": 0.0
+        },
+        {
+          "column": "comb08",
+          "null_pct": 0.0
+        }
+      ],
+      "note": null
+    }
+  ],
+  "gold": [
+    {
+      "gold_table": "complaints_by_make_model_year",
+      "rows": 34484,
+      "output": "data\\gold\\complaints_by_make_model_year\\run_date=2026-03-03\\complaints_by_make_model_year.parquet"
+    },
+    {
+      "gold_table": "stations_by_state_fuel",
+      "rows": 229,
+      "output": "data\\gold\\stations_by_state_fuel\\run_date=2026-03-03\\stations_by_state_fuel.parquet"
+    },
+    {
+      "gold_table": "fuel_economy_by_make_year",
+      "rows": 2066,
+      "output": "data\\gold\\fuel_economy_by_make_year\\run_date=2026-03-03\\fuel_economy_by_make_year.parquet"
+    },
+    {
+      "gold_table": "vehicle_trends",
+      "rows": 34484,
+      "output": "data\\gold\\vehicle_trends\\run_date=2026-03-03\\vehicle_trends.parquet"
+    }
+  ]
+}

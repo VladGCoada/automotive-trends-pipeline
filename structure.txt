@@ -1,0 +1,18 @@
+project/
+│
+├── config.yaml
+├── main.py              (CLI orchestrator)
+├── src/
+│   ├── extract.py
+│   ├── silver.py
+│   ├── gold.py
+│   ├── validate.py
+│   ├── load_simulator.py
+│   └── report.py
+│
+├── data/
+│   ├── raw/
+│   ├── silver/
+│   └── gold/
+│
+└── artifacts/sql/

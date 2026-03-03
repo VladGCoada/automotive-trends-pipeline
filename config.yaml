@@ -1,0 +1,65 @@
+paths:
+  raw: data/raw
+
+schemas:
+  silver:
+    nhtsa_complaints:
+      required_columns:
+        - odi_number
+        - received_date
+        - make
+        - model
+        - model_year
+        - state
+        - crash
+        - fire
+        - number_of_injured
+        - number_of_deaths
+        - component
+        - summary
+      primary_key: ["odi_number"]
+
+    nrel_stations:
+      required_columns:
+        - id
+        - station_name
+        - fuel_type_code
+        - state
+        - city
+        - zip
+        - latitude
+        - longitude
+        - status_code
+        - access_code
+      primary_key: ["id"]
+
+    epa_vehicles:
+      required_columns:
+        - id
+        - year
+        - make
+        - model
+        - fuel_type1
+        - city08
+        - highway08
+        - comb08
+        - co2tailpipegpm
+      primary_key: ["id"]
+
+sources:
+  nrel:
+    url: "https://developer.nrel.gov/api/alt-fuel-stations/v1.json"
+    out_file: "stations.json"
+    api_key_env: "NREL_API_KEY"
+    params:
+      status: "E"
+      access: "public"
+      fuel_type: "ELEC,E85,CNG,LNG,LPG,HY,BD"
+      limit: "all"
+
+  nhtsa:
+    url: "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip"
+    out_file: "FLAT_CMPL.zip"
+  epa:
+    url: "https://www.fueleconomy.gov/feg/epadata/vehicles.csv.zip"
+    out_file: "vehicles.csv.zip"
