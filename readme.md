@@ -1,4 +1,26 @@
 Automotive Trends Pipeline (Raw / Silver / Gold)
+
+
+How to Run the Project
+Python 3.10+ recommended.
+1.Clone the repository
+git clone https://github.com/VladGCoada/automotive-trends-pipeline.git
+cd automotive-trends-pipeline
+2.Create and activate virtual environment
+Windows (PowerShell):
+python3 -m venv .venv
+source .venv/bin/activate
+3.Install dependencies
+pip install -r requirements.txt
+4.Set NREL API Key (required for fuel station dataset)
+
+Windows (PowerShell):
+$env:NREL_API_KEY="your_key_here"
+You can obtain a free API key from:
+https://developer.nrel.gov/signup/
+5.Run the full pipeline
+python main.py --run-date 2026-03-03
+   
 What this is
 
 This is a local-first Python data pipeline built to explore broader automotive industry trends using public datasets.
@@ -23,12 +45,9 @@ Never modified
 
 Metadata saved alongside each dataset
 
-Why?
-So the pipeline is reproducible and safe to reprocess.
 
 Silver
-
-This is where cleaning happens.
+.
 
 Per dataset:
 
@@ -52,9 +71,7 @@ This layer is structured and reliable.
 
 Gold
 
-This is the analytics layer.
-
-I created:
+analytics layer ->>
 
 complaints_by_make_model_year
 
@@ -96,17 +113,7 @@ https://www.fueleconomy.gov/feg/epadata/vehicles.csv.zip
 
 Selected MPG and CO2-related fields for analysis.
 
-How to Run It
 
-1. Create venv
-   python -m venv .venv
-   .venv\Scripts\Activate
-2. Install deps
-   pip install -r requirements.txt
-3. Set NREL API key
-   $env:NREL_API_KEY="your_key_here"
-4. Run everything
-   python main.py --run-date 2026-03-03
 
 You can also run specific steps:
 
@@ -140,8 +147,6 @@ Delta Lake DDL + MERGE
 
 These demonstrate how the gold layer would be loaded in a real environment.
 
-Why I built it this way
-
 Medallion structure keeps things clean and easy to reason about.
 
 Raw is immutable so I can reprocess safely.
@@ -149,10 +154,6 @@ Raw is immutable so I can reprocess safely.
 Silver handles validation and quality.
 
 Gold is small, aggregated, and ready for BI.
-
-Load is simulated because the assessment doesn’t require a live database.
-
-I kept it intentionally mid-level — readable, modular, and easy to explain.
 
 Automation idea
 
