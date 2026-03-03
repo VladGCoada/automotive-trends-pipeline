@@ -145,12 +145,6 @@ Azure SQL DDL + MERGE
 
 Delta Lake DDL + MERGE
 
-These demonstrate how the gold layer would be loaded in a real environment.
-
-Medallion structure keeps things clean and easy to reason about.
-
-Raw is immutable so I can reprocess safely.
-
 Silver handles validation and quality.
 
 Gold is small, aggregated, and ready for BI.
