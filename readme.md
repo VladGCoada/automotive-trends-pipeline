@@ -6,18 +6,23 @@ Python 3.10+ recommended.
 1.Clone the repository
 git clone https://github.com/VladGCoada/automotive-trends-pipeline.git
 cd automotive-trends-pipeline
+
 2.Create and activate virtual environment
 Windows (PowerShell):
 python3 -m venv .venv
 source .venv/bin/activate
+
 3.Install dependencies
 pip install -r requirements.txt
+
 4.Set NREL API Key (required for fuel station dataset)
 
 Windows (PowerShell):
 $env:NREL_API_KEY="your_key_here"
 You can obtain a free API key from:
 https://developer.nrel.gov/signup/
+
+
 5.Run the full pipeline
 python main.py --run-date 2026-03-03
    
