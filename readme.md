@@ -1,15 +1,15 @@
 Automotive Trends Pipeline (Raw / Silver / Gold)
 
 How to Run the Project
-Python 3.10+ recommended.
+Python 3.10+ .
 1.Clone the repository
 git clone https://github.com/VladGCoada/automotive-trends-pipeline.git
 cd automotive-trends-pipeline
 
 2.Create and activate virtual environment
 Windows (PowerShell):
-python3 -m venv .venv
-source .venv/bin/activate
+create :   python -m venv .venv
+activare:   .venv\Scripts\Activate
 
 3.Install dependencies
 pip install -r requirements.txt
