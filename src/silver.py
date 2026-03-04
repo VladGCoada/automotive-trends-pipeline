@@ -156,7 +156,6 @@ def silver_nhtsa(config_path: str, run_date: str) -> dict:
         removed_dupes = before - len(df.drop_duplicates(subset=pk, keep="first"))
         df = df.drop_duplicates(subset=pk, keep="first")
 
-    # Save
     out_dir = _silver_run_dir(cfg, "nhtsa_complaints", run_date)
     out_file = out_dir / "nhtsa_complaints.parquet"
     df.to_parquet(out_file, index=False)
@@ -199,7 +198,6 @@ def silver_nrel(config_path: str, run_date: str) -> dict:
     existing_keep = [c for c in keep if c in df.columns]
     df = df[existing_keep].copy()
 
-    # Clean types
     if "id" in df.columns:
         df["id"] = pd.to_numeric(df["id"], errors="coerce").astype("Int64")
     for c in ["latitude", "longitude"]:
@@ -268,7 +266,6 @@ def silver_epa(config_path: str, run_date: str) -> dict:
     existing_keep = [c for c in keep if c in df.columns]
     df = df[existing_keep].copy()
 
-    # Types
     df["id"] = pd.to_numeric(df["id"], errors="coerce").astype("Int64")
     df["year"] = pd.to_numeric(df["year"], errors="coerce").astype("Int64")
 

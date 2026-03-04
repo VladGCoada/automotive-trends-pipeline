@@ -1,6 +1,5 @@
 Automotive Trends Pipeline (Raw / Silver / Gold)
 
-
 How to Run the Project
 Python 3.10+ recommended.
 1.Clone the repository
@@ -22,10 +21,9 @@ $env:NREL_API_KEY="your_key_here"
 You can obtain a free API key from:
 https://developer.nrel.gov/signup/
 
-
 5.Run the full pipeline
 python main.py --run-date 2026-03-03
-   
+
 What this is
 
 This is a local-first Python data pipeline built to explore broader automotive industry trends using public datasets.
@@ -46,13 +44,7 @@ Data stored exactly as downloaded
 
 Partitioned by run_date
 
-Never modified
-
 Metadata saved alongside each dataset
-
-
-Silver
-.
 
 Per dataset:
 
@@ -72,11 +64,7 @@ Calculate null rates
 
 Output format: Parquet
 
-This layer is structured and reliable.
-
-Gold
-
-analytics layer ->>
+Gold analytics layer ->>
 
 complaints_by_make_model_year
 
@@ -85,8 +73,6 @@ stations_by_state_fuel
 fuel_economy_by_make_year
 
 vehicle_trends (joins complaints with fuel economy)
-
-These tables are ready for dashboards or reporting.
 
 Data Sources
 NHTSA Complaints
@@ -118,12 +104,10 @@ https://www.fueleconomy.gov/feg/epadata/vehicles.csv.zip
 
 Selected MPG and CO2-related fields for analysis.
 
-
-
 You can also run specific steps:
 
 python main.py --steps silver,gold,report,load
-What gets generated
+What gets generated :::
 Clean datasets
 data/silver/
 data/gold/
@@ -194,4 +178,5 @@ sql/
 Author
 
 Vlad Coada
-Data Engineering Project
+
+Data Engineering Project BOSCH

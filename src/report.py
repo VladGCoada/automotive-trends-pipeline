@@ -1,4 +1,3 @@
-# src/report.py
 from __future__ import annotations
 from pathlib import Path
 from datetime import datetime, timezone
@@ -20,7 +19,6 @@ def write_run_report(run_date: str, extract_results: list[dict] | None,
         "gold": gold_results,
     }
 
-    # Format silver section: include top null rates as % for readability
     for r in silver_results:
         nulls = r.get("null_rates", {})
         top_nulls = sorted(nulls.items(), key=lambda kv: kv[1], reverse=True)[:8]
@@ -37,7 +35,6 @@ def write_run_report(run_date: str, extract_results: list[dict] | None,
     out_path = Path(out_dir) / f"run_report_{run_date}.json"
     out_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
 
-    # Also print a simple console summary
     print("\n=== RUN REPORT SUMMARY ===")
     for r in report["silver"]:
         print(f"- SILVER {r['dataset']}: rows={r['silver_rows']}, dupes_removed={r['duplicates_removed']}, dropped_missing_core={r['dropped_missing_core']}")

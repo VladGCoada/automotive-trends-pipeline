@@ -1,4 +1,3 @@
-# src/gold.py
 from __future__ import annotations
 from pathlib import Path
 import pandas as pd
@@ -18,14 +17,12 @@ def _gold_run_dir(cfg: dict, dataset: str, run_date: str) -> Path:
 def build_gold(config_path: str, run_date: str) -> list[dict]:
     cfg = _load_config(config_path)
 
-    # ---- Load silver ----
     nhtsa = pd.read_parquet(_silver_run_dir(cfg, "nhtsa_complaints", run_date) / "nhtsa_complaints.parquet")
     nrel  = pd.read_parquet(_silver_run_dir(cfg, "nrel_stations", run_date) / "nrel_stations.parquet")
     epa   = pd.read_parquet(_silver_run_dir(cfg, "epa_vehicles", run_date) / "epa_vehicles.parquet")
 
     outputs = []
 
-    # ---- Gold 1: complaints_by_make_model_year ----
     g1 = (
         nhtsa.groupby(["model_year", "make", "model"], dropna=False)
         .agg(
